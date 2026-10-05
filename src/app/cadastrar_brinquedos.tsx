@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import { Input } from "@/components/Input";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { useState } from "react";
@@ -68,6 +67,7 @@ export default function CadastrarBrinquedos () {
                     placeholderTextColor="#9CA3AF"
                 />
 
+                {/* COR PREDOMINANTE*/}
                 <Text style={styles.label}>Cor predominante</Text>
                 <View style={styles.chips}>
                     {CORES.map((c) => {
@@ -87,12 +87,38 @@ export default function CadastrarBrinquedos () {
                     })}
                 </View>
 
-                <Input placeholder="Capacidade Máxima (crinças)" keyboardType="number-pad"/>
-                <Input placeholder="Valor por minuto (ex: 1,20)" keyboardType="number-pad"/>
-                <Input placeholder="Valor por locação (ex: 150,00)" keyboardType="number-pad"/>
-                <Input placeholder="Cor predominante"/>
+                {/* CAPACIDADE MAXIMA */}
+                <Text style={styles.label}>Capacidade Max (crianças) *</Text>
+                <TextInput
+                    style={styles.input}
+                    value={capacidade}
+                    onChangeText={setCapacidade}
+                    placeholder="Ex: 4"
+                    keyboardType="number-pad"
+                    placeholderTextColor="#9CA3AF"
+                />
 
+                {/* VALOR POR MINUTO */}
+                <Text style={styles.label}>Valor por minuto *</Text>
+                <TextInput
+                    style={styles.input}
+                    value={valorMinuto}
+                    onChangeText={setValorMinuto}
+                    placeholder="Ex: 10,00"
+                    keyboardType="number-pad"
+                    placeholderTextColor="#9CA3AF"
+                />
 
+                {/* VALOR POR LOCAÇÃO */}
+                <Text style={styles.label}>Valor por locação *</Text>
+                <TextInput
+                    style={styles.input}
+                    value={valorLocacao}
+                    onChangeText={setValorLocacao}
+                    placeholder="Ex: 150,00"
+                    keyboardType="number-pad"
+                    placeholderTextColor="#9CA3AF"
+                />       
             </View>
             
             <TouchableOpacity style={styles.newServiceButton} onPress={MsgSalvar}>
